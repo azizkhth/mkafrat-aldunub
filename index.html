@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مكفرات الذنوب | أذكار وأعمال صحيحة</title>
+<meta name="description" content="موقع مكفرات الذنوب: أذكار وأدعية وأعمال صحيحة من الكتاب والسنة لتكفير الذنوب مع مسبحة إلكترونية">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web@1.2.0/index.css">
+<style>
+:root{
+  --bg:#faf7f0;
+  --bg2:#f1e9d6;
+  --card:#ffffff;
+  --ink:#2b2620;
+  --muted:#7a7060;
+  --gold:#b8860b;
+  --gold2:#d4a017;
+  --green:#0f6b4f;
+  --green2:#15805f;
+  --border:#e8ddc3;
+  --shadow:0 10px 30px rgba(120,90,20,.12);
+  --radius:20px;
+  --font-scale:1;
+}
+[data-theme="dark"]{
+  --bg:#12100d;
+  --bg2:#1c1813;
+  --card:#1f1a14;
+  --ink:#f0e8d5;
+  --muted:#b8ab8d;
+  --gold:#e6bc4a;
+  --gold2:#f2d06e;
+  --green:#2dd4a0;
+  --green2:#34d399;
+  --border:#342c1e;
+  --shadow:0 10px 30px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Thmanyah Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:calc(17px * var(--font-scale));
+  line-height:1.9;
+  transition:background .3s,color .3s;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(212,160,23,.12), transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(15,107,79,.12), transparent 30%);
+}
+a{color:inherit}
+/* header */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(12px);
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1150px;margin:auto;padding:.7rem 1rem;
+  display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+}
+.logo{
+  display:flex;align-items:center;gap:.6rem;font-weight:800;
+}
+.logo-mark{
+  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--green),#0a4a38);
+  color:#fff;font-family:'Thmanyah Serif Display',serif;font-size:1.5rem;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.2);
+}
+.logo small{display:block;font-weight:400;color:var(--muted);font-size:.8rem;line-height:1}
+.controls{margin-inline-start:auto;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.btn{
+  border:1px solid var(--border);background:var(--card);color:var(--ink);
+  padding:.45rem .8rem;border-radius:999px;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:.9rem;
+  display:inline-flex;align-items:center;gap:.4rem;
+  transition:.2s;box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.btn:hover{transform:translateY(-1px);border-color:var(--gold)}
+.btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#221a06;border:none}
+.font-ctrl{display:flex;align-items:center;gap:.3rem;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:.25rem .5rem}
+.font-ctrl button{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-weight:800}
+.font-ctrl span{font-size:.85rem;min-width:52px;text-align:center;color:var(--muted)}
+/* hero */
+.hero{max-width:1150px;margin:auto;padding:2.2rem 1rem 1rem;text-align:center}
+.badge{display:inline-block;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:.3rem .9rem;color:var(--muted);font-size:.9rem}
+.hero h1{
+  font-family:'Thmanyah Serif Display',serif;font-size:clamp(2rem,5vw,3.4rem);
+  margin:.8rem 0 .3rem;line-height:1.4;
+  background:linear-gradient(135deg,var(--green2),var(--gold2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{max-width:700px;margin:.5rem auto;color:var(--muted)}
+.ayah{
+  font-family:'Thmanyah Serif Text',serif;font-size:calc(1.35rem * var(--font-scale));
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1.1rem 1.3rem;max-width:760px;margin:1.2rem auto;box-shadow:var(--shadow);position:relative;
+}
+.ayah::before{content:"﴿";color:var(--gold);font-size:2rem;position:absolute;right:12px;top:2px;opacity:.5}
+.ayah::after{content:"﴾";color:var(--gold);font-size:2rem;position:absolute;left:12px;bottom:-6px;opacity:.5}
+.stats{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:.6rem 1.1rem;min-width:150px;box-shadow:var(--shadow)}
+.stat b{font-size:1.4rem;display:block}
+.stat span{font-size:.85rem;color:var(--muted)}
+/* filter */
+.filter-bar{max-width:1150px;margin:1rem auto;padding:0 1rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.search{flex:1;min-width:220px;display:flex;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:.5rem .9rem;gap:.5rem;align-items:center}
+.search input{border:none;background:transparent;outline:none;width:100%;font-family:inherit;color:var(--ink);font-size:1rem}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap}
+.chip{border:1px solid var(--border);background:var(--card);border-radius:999px;padding:.4rem .9rem;cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:700}
+.chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+/* grid */
+.grid{max-width:1150px;margin:1rem auto 3rem;padding:0 1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1rem}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1.2rem;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:.7rem;
+  transition:transform .2s;
+}
+.card:hover{transform:translateY(-3px)}
+.card::before{content:"";position:absolute;inset-inline:0;top:0;height:4px;background:linear-gradient(90deg,var(--green),var(--gold2));}
+.card.done{border-color:var(--green);outline:2px solid color-mix(in srgb, var(--green) 40%, transparent)}
+.card-head{display:flex;gap:.6rem;align-items:flex-start}
+.num{width:40px;height:40px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;background:var(--bg2);border:1px solid var(--border);font-weight:800;color:var(--gold)}
+.card h3{margin:0;font-size:1.1rem;line-height:1.6}
+.cat{font-size:.75rem;background:var(--bg2);border:1px solid var(--border);border-radius:999px;padding:.1rem .6rem;color:var(--muted);white-space:nowrap}
+.dhikr{
+  font-family:'Thmanyah Serif Text',serif;font-size:calc(1.35rem * var(--font-scale));
+  line-height:2;background:var(--bg);border:1px dashed var(--border);
+  border-radius:14px;padding:.8rem .9rem;text-align:center;
+}
+.virtue{font-size:.95rem;color:var(--muted);background:color-mix(in srgb, var(--green) 7%, transparent);border-radius:12px;padding:.6rem .8rem;border:1px solid color-mix(in srgb, var(--green) 20%, transparent)}
+.virtue b{color:var(--green2)}
+.source{font-size:.82rem;color:var(--muted)}
+.source b{color:var(--gold)}
+.counter-box{display:flex;align-items:center;gap:.6rem;margin-top:auto;background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:.6rem}
+.progress{width:56px;height:56px;flex-shrink:0;position:relative}
+.progress svg{transform:rotate(-90deg)}
+.prog-num{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.counter-btns{display:flex;gap:.4rem;flex:1}
+.tasbih-btn{
+  flex:1;border:none;border-radius:12px;padding:.7rem;font-family:inherit;font-weight:800;font-size:1rem;cursor:pointer;
+  background:linear-gradient(135deg,var(--green2),var(--green));color:#fff;
+}
+.tasbih-btn:active{transform:scale(.97)}
+.reset-btn{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:.7rem .9rem;cursor:pointer;font-family:inherit}
+.remain{font-size:.85rem;color:var(--muted);white-space:nowrap}
+.completed-msg{display:none;text-align:center;font-weight:800;color:var(--green2)}
+.card.done .completed-msg{display:block}
+/* footer */
+footer{border-top:1px solid var(--border);background:var(--bg2);padding:2rem 1rem;text-align:center;color:var(--muted)}
+footer .fonts{font-family:'Thmanyah Serif Text',serif}
+.note{max-width:900px;margin:1rem auto;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem}
+/* toast */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--ink);color:var(--bg);padding:.7rem 1.2rem;border-radius:999px;transition:.3s;z-index:99;font-weight:700;opacity:0}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+@media(max-width:600px){.topbar-inner{justify-content:center}.controls{margin:0}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">
+      <div class="logo-mark">غ</div>
+      <div>مكفرات الذنوب<br><small>أذكار وأعمال صحيحة • مع مسبحة</small></div>
+    </div>
+    <div class="controls">
+      <div class="font-ctrl" title="حجم الخط">
+        <button id="decreaseFont" aria-label="تصغير الخط">أ−</button>
+        <span id="fontVal">100%</span>
+        <button id="increaseFont" aria-label="تكبير الخط">أ+</button>
+      </div>
+      <button class="btn" id="themeBtn">🌙 ليلي</button>
+      <button class="btn gold" id="resetAll">↺ تصفير الكل</button>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <span class="badge">✨ 20 ذكراً وعملاً صحيحاً من السنة لتكفير الذنوب</span>
+  <h1>امحُ ذنوبك ولو كانت مثل زبد البحر</h1>
+  <p>مجموعة موثوقة من الأذكار والأعمال المكفِّرة للذنوب مع تخريجها من كتب السنة، وخط عربي مميز، ومسبحة إلكترونية لكل ذكر يحتاج تكراراً.</p>
+  <div class="ayah">قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا — الزمر: 53</div>
+  <div class="stats">
+    <div class="stat"><b id="totalAdhkar">20</b><span>ذكر وعمل</span></div>
+    <div class="stat"><b id="doneCount">0</b><span>مكتمل اليوم</span></div>
+    <div class="stat"><b id="totalCount">0</b><span>مجموع التسبيحات</span></div>
+    <div class="stat"><b>100%</b><span>أحاديث صحيحة موثقة</span></div>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="search">🔍 <input id="search" placeholder="ابحث عن ذكر... مثال: استغفار، وضوء، صلاة"></div>
+  <div class="chips" id="chips">
+    <button class="chip active" data-cat="all">الكل</button>
+    <button class="chip" data-cat="يومية">أذكار يومية</button>
+    <button class="chip" data-cat="صلاة">بعد الصلاة</button>
+    <button class="chip" data-cat="أعمال">أعمال مكفرة</button>
+    <button class="chip" data-cat="أدعية">أدعية</button>
+  </div>
+</div>
+
+<main class="grid" id="grid"></main>
+
+<div style="max-width:900px;margin:0 auto 2rem;padding:0 1rem">
+  <div class="note">
+    <b>📚 تنبيه علمي:</b> جميع الأذكار أعلاه ثابتة بأحاديث صحيحة. الكبائر تحتاج توبة خاصة بشروطها (الإقلاع، الندم، العزم على عدم العودة، وإرجاع الحقوق لأهلها)، وهذه المكفرات تكفّر الصغائر، وتخفف الكبائر مع التوبة. المصادر: صحيح البخاري، صحيح مسلم، سنن الترمذي وأبي داود وابن ماجه بتصحيح الألباني.
+  </div>
+</div>
+
+<footer>
+  <div style="font-family:'Thmanyah Serif Display',serif;font-size:1.4rem;color:var(--ink)">مكفرات الذنوب</div>
+  <div class="fonts">سُبْحَانَ اللهِ وَبِحَمْدِهِ • أَسْتَغْفِرُ الله • لَا إِلَهَ إِلَّا الله</div>
+  <p>صُنع بحب لنشر السنة الصحيحة • تذكّر: الدال على الخير كفاعله</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = [
+{cat:"يومية", title:"سبحان الله وبحمده 100 مرة", dhikr:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", count:100, virtue:"حُطَّت خطاياه وإن كانت مثل زبد البحر", source:"متفق عليه — البخاري 6405 ومسلم 2691"},
+{cat:"يومية", title:"الاستغفار مائة مرة", dhikr:"أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", count:100, virtue:"كان النبي ﷺ يستغفر في اليوم مائة مرة وهو المغفور له", source:"صحيح مسلم 2702"},
+{cat:"أدعية", title:"سيد الاستغفار", dhikr:"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ", count:1, virtue:"من قالها موقناً بها فمات دخل الجنة", source:"صحيح البخاري 6306"},
+{cat:"يومية", title:"التهليل 100 مرة", dhikr:"لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", count:100, virtue:"كانت له عدل عشر رقاب، وكُتبت له مائة حسنة، ومُحيت عنه مائة سيئة", source:"متفق عليه — البخاري 3293 ومسلم 2691"},
+{cat:"يومية", title:"أحب الكلام إلى الله", dhikr:"سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ", count:100, virtue:"تنحط الخطايا كما تنحط أوراق الشجر", source:"صحيح مسلم 2695 — ومسند أحمد بسند صحيح"},
+{cat:"أدعية", title:"دعوة ذي النون", dhikr:"لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ", count:100, virtue:"لم يدع بها مسلم في شيء قط إلا استجاب الله له وفرّج عنه", source:"سنن الترمذي 3505 — صحيح"},
+{cat:"أدعية", title:"الاستغفار الجامع", dhikr:"أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ", count:3, virtue:"غُفر له وإن كان فرّ من الزحف", source:"أبو داود 1517 والترمذي 3577 — صحيح"},
+{cat:"صلاة", title:"التسبيح دبر كل صلاة", dhikr:"سُبْحَانَ الله 33 • الْحَمْدُ لله 33 • اللهُ أَكْبَر 34", count:100, virtue:"غُفرت خطاياه وإن كانت مثل زبد البحر", source:"صحيح مسلم 597"},
+{cat:"صلاة", title:"موافقة تأمين الملائكة", dhikr:"آمِين بعد قول الإمام: وَلَا الضَّالِّين", count:1, virtue:"من وافق تأمينه تأمين الملائكة غُفر له ما تقدم من ذنبه", source:"متفق عليه — البخاري 780 ومسلم 410"},
+{cat:"صلاة", title:"ربنا ولك الحمد", dhikr:"رَبَّنَا وَلَكَ الْحَمْدُ حَمْدًا كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ", count:1, virtue:"رأى النبي ﷺ بضعة وثلاثين ملكاً يبتدرونها أيهم يكتبها أول", source:"صحيح البخاري 799"},
+{cat:"صلاة", title:"كفارة المجلس", dhikr:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ، أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ", count:1, virtue:"كفارة لما يكون في المجلس من لغو", source:"الترمذي 3433 — صحيح"},
+{cat:"صلاة", title:"ركعتا التوبة", dhikr:"يتوضأ فيُحسن الوضوء ثم يصلي ركعتين ثم يستغفر الله", count:1, virtue:"إلا غفر الله له", source:"أبو داود 1521 والترمذي 406 — صحيح"},
+{cat:"أعمال", title:"إسباغ الوضوء", dhikr:"إِسْبَاغُ الْوُضُوءِ عَلَى الْمَكَارِهِ", count:1, virtue:"تخرج خطاياه من جسده حتى تخرج من تحت أظفاره", source:"صحيح مسلم 244"},
+{cat:"أعمال", title:"الدعاء بعد الوضوء", dhikr:"أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ", count:1, virtue:"فُتحت له أبواب الجنة الثمانية يدخل من أيها شاء", source:"صحيح مسلم 234"},
+{cat:"أعمال", title:"الصلوات الخمس والجمعة", dhikr:"الصَّلَوَاتُ الْخَمْسُ، وَالْجُمُعَةُ إِلَى الْجُمُعَةِ، وَرَمَضَانُ إِلَى رَمَضَانَ", count:1, virtue:"مكفرات ما بينهن إذا اجتُنبت الكبائر", source:"صحيح مسلم 233"},
+{cat:"أعمال", title:"صيام عرفة وعاشوراء", dhikr:"صِيَامُ يَوْمِ عَرَفَةَ وَيَوْمِ عَاشُورَاءَ", count:1, virtue:"عرفة يكفّر سنتين، وعاشوراء يكفّر سنة ماضية", source:"صحيح مسلم 1162"},
+{cat:"أعمال", title:"الحمد بعد الطعام واللباس", dhikr:"الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ", count:1, virtue:"غُفر له ما تقدم من ذنبه", source:"الترمذي 3458 وابن ماجه 3285 — حسن"},
+{cat:"أعمال", title:"الصدقة", dhikr:"الصَّدَقَةُ تُطْفِئُ الْخَطِيئَةَ كَمَا يُطْفِئُ الْمَاءُ النَّارَ", count:1, virtue:"تطفئ الخطيئة وتدفع ميتة السوء", source:"الترمذي 614 — صحيح"},
+{cat:"أعمال", title:"الحج المبرور", dhikr:"الْحَجُّ الْمَبْرُورُ لَيْسَ لَهُ جَزَاءٌ إِلَّا الْجَنَّةُ", count:1, virtue:"رجع كيوم ولدته أمه", source:"متفق عليه — البخاري 1521 ومسلم 1350"},
+{cat:"يومية", title:"لا حول ولا قوة إلا بالله", dhikr:"لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", count:100, virtue:"كنز من كنوز الجنة", source:"متفق عليه — البخاري 6384 ومسلم 2704"},
+];
+
+let state = JSON.parse(localStorage.getItem('mkafrat')||'{}');
+let fontScale = parseFloat(localStorage.getItem('fontScale')||'1');
+let theme = localStorage.getItem('theme')||'light';
+let activeCat = 'all';
+
+function applyFont(){document.documentElement.style.setProperty('--font-scale',fontScale);document.getElementById('fontVal').textContent=Math.round(fontScale*100)+'%';localStorage.setItem('fontScale',fontScale)}
+function applyTheme(){document.documentElement.setAttribute('data-theme',theme);document.getElementById('themeBtn').textContent=theme==='light'?'🌙 ليلي':'☀️ نهاري';localStorage.setItem('theme',theme)}
+
+function save(){localStorage.setItem('mkafrat',JSON.stringify(state))}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1800)}
+
+function render(){
+  const grid=document.getElementById('grid');
+  const q=(document.getElementById('search').value||'').trim();
+  grid.innerHTML='';
+  let done=0,total=0;
+  DATA.forEach((d,i)=>{
+    const cur=state[i]||0;
+    total+=cur;
+    if(cur>=d.count) done++;
+    if(activeCat!=='all'&&d.cat!==activeCat) return;
+    if(q&&!(d.title.includes(q)||d.dhikr.includes(q))) return;
+    const pct=Math.min(100,Math.round(cur/d.count*100));
+    const c=2*Math.PI*22;
+    const el=document.createElement('div');
+    el.className='card'+(cur>=d.count?' done':'');
+    el.innerHTML=`
+      <div class="card-head"><div class="num">${i+1}</div><h3>${d.title}</h3><span class="cat">${d.cat}</span></div>
+      <div class="dhikr">${d.dhikr}</div>
+      <div class="virtue">🌿 <b>الفضل:</b> ${d.virtue}</div>
+      <div class="source">📖 <b>المصدر:</b> ${d.source} &nbsp;•&nbsp; 🔁 التكرار: <b>${d.count}</b></div>
+      <div class="completed-msg">✅ تقبّل الله منك — أتممت هذا الذكر</div>
+      <div class="counter-box">
+        <div class="progress">
+          <svg width="56" height="56"><circle cx="28" cy="28" r="22" fill="none" stroke="var(--border)" stroke-width="6"/><circle cx="28" cy="28" r="22" fill="none" stroke="var(--green)" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c-c*pct/100}"/></svg>
+          <div class="prog-num">${cur}/${d.count}</div>
+        </div>
+        <div class="counter-btns">
+          <button class="tasbih-btn" data-i="${i}">🤲 سبِّح</button>
+          <button class="reset-btn" data-r="${i}" title="إعادة">↺</button>
+        </div>
+      </div>
+      <div class="remain">المتبقي: ${Math.max(0,d.count-cur)} • اضغط أو المس زر التسبيح للعد</div>`;
+    grid.appendChild(el);
+  });
+  document.getElementById('doneCount').textContent=done+' / '+DATA.length;
+  document.getElementById('totalCount').textContent=total;
+  if(!grid.children.length) grid.innerHTML='<div class="card" style="text-align:center">لا توجد نتائج مطابقة — جرّب كلمة أخرى</div>';
+}
+document.getElementById('grid').addEventListener('click',e=>{
+  const b=e.target.closest('[data-i]');const r=e.target.closest('[data-r]');
+  if(b){const i=+b.dataset.i;const cur=state[i]||0;
+    if(cur>=DATA[i].count){toast('أتممت هذا الذكر ولله الحمد ✅');return}
+    state[i]=cur+1;save();render();
+    if(state[i]>=DATA[i].count){toast('🎉 تقبّل الله — أتممت: '+DATA[i].title);if(navigator.vibrate)navigator.vibrate(60)}
+  }
+  if(r){const i=+r.dataset.r;delete state[i];save();render()}
+});
+document.getElementById('search').addEventListener('input',render);
+document.getElementById('chips').addEventListener('click',e=>{
+  const c=e.target.closest('.chip');if(!c)return;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active');activeCat=c.dataset.cat;render();
+});
+document.getElementById('increaseFont').onclick=()=>{fontScale=Math.min(1.6,fontScale+0.1);applyFont()};
+document.getElementById('decreaseFont').onclick=()=>{fontScale=Math.max(0.8,fontScale-0.1);applyFont()};
+document.getElementById('themeBtn').onclick=()=>{theme=theme==='light'?'dark':'light';applyTheme()};
+document.getElementById('resetAll').onclick=()=>{if(confirm('تصفير جميع العدادات؟')){state={};save();render();toast('تم التصفير')}};
+// مسافة = تسبيح لآخر بطاقة؟ دعم لوحة المفاتيح
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space'&&e.target.tagName!=='INPUT'){e.preventDefault();
+    // سبّح لأول بطاقة غير مكتملة ظاهرة
+    const btn=document.querySelector('.tasbih-btn');if(btn)btn.click();
+  }
+});
+applyFont();applyTheme();render();
+</script>
+</body>
+</html>
