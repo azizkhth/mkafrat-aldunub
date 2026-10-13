@@ -6,6 +6,14 @@
 <title>مكفرات الذنوب | أذكار وأعمال صحيحة</title>
 <meta name="description" content="موقع مكفرات الذنوب: أذكار وأدعية وأعمال صحيحة من الكتاب والسنة لتكفير الذنوب مع مسبحة إلكترونية">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web@1.2.0/index.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f6b4f">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="مكفرات الذنوب">
 <style>
 :root{
   --bg:#faf7f0;
@@ -159,7 +167,21 @@ footer .fonts{font-family:'Thmanyah Serif Text',serif}
 /* toast */
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--ink);color:var(--bg);padding:.7rem 1.2rem;border-radius:999px;transition:.3s;z-index:99;font-weight:700;opacity:0}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-@media(max-width:600px){.topbar-inner{justify-content:center}.controls{margin:0}}
+@media(max-width:600px){.topbar-inner{justify-content:center}.controls{margin:0;justify-content:center}
+.grid{grid-template-columns:1fr}.hero{padding-top:1.4rem}.counter-box{flex-wrap:wrap}
+.tasbih-btn{min-height:52px;font-size:1.1rem}.search{min-width:100%}.stat{min-width:44%}}
+/* PWA + touch */
+html,body{overflow-x:hidden}
+.btn,.chip,.tasbih-btn,.reset-btn,.font-ctrl button{min-height:44px}
+.btn{text-decoration:none}
+.dhikr{overflow-wrap:anywhere}
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:grid;place-items:center;z-index:100;padding:1rem}
+.modal-backdrop[hidden]{display:none}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.5rem;max-width:420px;width:100%;box-shadow:var(--shadow)}
+.modal h3{margin-top:0;font-family:'Thmanyah Serif Display',serif}
+.modal ol{padding-inline-start:1.2rem;color:var(--muted)}
+.update-bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:.7rem 1rem;display:flex;gap:.6rem;align-items:center;z-index:99;box-shadow:var(--shadow);font-weight:700;max-width:92vw;flex-wrap:wrap;justify-content:center}
+.update-bar[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -177,6 +199,7 @@ footer .fonts{font-family:'Thmanyah Serif Text',serif}
         <button id="increaseFont" aria-label="تكبير الخط">أ+</button>
       </div>
       <button class="btn" id="themeBtn">🌙 ليلي</button>
+      <button class="btn" id="installBtn" hidden>📲 تثبيت التطبيق</button>
       <a class="btn" href="about.html">👥 من نحن</a>
       <button class="btn gold" id="resetAll">↺ تصفير الكل</button>
     </div>
@@ -222,6 +245,22 @@ footer .fonts{font-family:'Thmanyah Serif Text',serif}
   <p>صُنع بحب لنشر السنة الصحيحة • تذكّر: الدال على الخير كفاعله</p>
 </footer>
 
+<div class="modal-backdrop" id="iosModal" hidden>
+  <div class="modal">
+    <h3>📲 التثبيت على iPhone / iPad</h3>
+    <ol>
+      <li>افتح الموقع في متصفح <b>Safari</b></li>
+      <li>اضغط زر <b>المشاركة</b> أسفل الشاشة</li>
+      <li>اختر <b>إضافة إلى الشاشة الرئيسية</b> ثم <b>إضافة</b></li>
+    </ol>
+    <button class="btn gold" id="iosClose" style="width:100%;justify-content:center">فهمت 👍</button>
+  </div>
+</div>
+<div class="update-bar" id="updateBar" hidden>
+  <span id="updateText"></span>
+  <button class="btn gold" id="updateBtn">تحديث</button>
+  <button class="btn" id="updateLater">لاحقاً</button>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -324,6 +363,63 @@ document.addEventListener('keydown',e=>{
   }
 });
 applyFont();applyTheme();render();
+/* PWA: التثبيت والتحديثات */
+(function(){
+  const installBtn=document.getElementById('installBtn');
+  let deferredPrompt=null;
+  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const isStandalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  const say=(m)=>{if(typeof toast==='function')toast(m)};
+  if(installBtn){
+    if(isStandalone)installBtn.hidden=true;
+    installBtn.addEventListener('click',async()=>{
+      if(deferredPrompt){
+        deferredPrompt.prompt();
+        try{await deferredPrompt.userChoice}catch(e){}
+        deferredPrompt=null;installBtn.hidden=true;
+      }else if(isIOS){
+        document.getElementById('iosModal').hidden=false;
+      }else{installBtn.hidden=true}
+    });
+  }
+  const iosModal=document.getElementById('iosModal');
+  const iosClose=document.getElementById('iosClose');
+  if(iosClose)iosClose.onclick=()=>{iosModal.hidden=true};
+  if(iosModal)iosModal.addEventListener('click',(e)=>{if(e.target===iosModal)iosModal.hidden=true});
+  window.addEventListener('beforeinstallprompt',(e)=>{
+    e.preventDefault();deferredPrompt=e;
+    if(installBtn&&!isStandalone)installBtn.hidden=false;
+  });
+  window.addEventListener('appinstalled',()=>{deferredPrompt=null;if(installBtn)installBtn.hidden=true;say('تم تثبيت التطبيق بنجاح ✅')});
+  if(isIOS&&!isStandalone&&installBtn)installBtn.hidden=false;
+  const bar=document.getElementById('updateBar');
+  const barText=document.getElementById('updateText');
+  const barBtn=document.getElementById('updateBtn');
+  const barLater=document.getElementById('updateLater');
+  let waitingWorker=null;
+  function showBar(t,btn,fn){
+    if(!bar)return;
+    barText.textContent=t;barBtn.textContent=btn;barBtn.onclick=fn;bar.hidden=false;
+  }
+  if(barLater)barLater.onclick=()=>{bar.hidden=true};
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('sw.js').then((reg)=>{
+      reg.addEventListener('updatefound',()=>{
+        const nw=reg.installing;
+        if(!nw)return;
+        nw.addEventListener('statechange',()=>{
+          if(nw.state==='installed'&&navigator.serviceWorker.controller){
+            waitingWorker=nw;
+            showBar('🔄 يتوفر إصدار جديد من التطبيق','تحديث الآن',()=>{if(waitingWorker)waitingWorker.postMessage('SKIP_WAITING')});
+          }
+        });
+      });
+    }).catch(()=>{});
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{
+      showBar('✅ تم تفعيل الإصدار الجديد','إعادة التحميل',()=>location.reload());
+    });
+  }
+})();
 </script>
 </body>
 </html>
