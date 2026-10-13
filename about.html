@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>من نحن | مكفرات الذنوب</title>
+<meta name="description" content="تعريف بموقع مكفرات الذنوب: رسالته ومنهجيته في جمع الأذكار والأعمال الصحيحة">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web@1.2.0/index.css">
+<style>
+:root{
+  --bg:#faf7f0;
+  --bg2:#f1e9d6;
+  --card:#ffffff;
+  --ink:#2b2620;
+  --muted:#7a7060;
+  --gold:#b8860b;
+  --gold2:#d4a017;
+  --green:#0f6b4f;
+  --green2:#15805f;
+  --border:#e8ddc3;
+  --shadow:0 10px 30px rgba(120,90,20,.12);
+  --radius:20px;
+  --font-scale:1;
+}
+[data-theme="dark"]{
+  --bg:#12100d;
+  --bg2:#1c1813;
+  --card:#1f1a14;
+  --ink:#f0e8d5;
+  --muted:#b8ab8d;
+  --gold:#e6bc4a;
+  --gold2:#f2d06e;
+  --green:#2dd4a0;
+  --green2:#34d399;
+  --border:#342c1e;
+  --shadow:0 10px 30px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Thmanyah Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:calc(17px * var(--font-scale));
+  line-height:1.9;
+  transition:background .3s,color .3s;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(212,160,23,.12), transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(15,107,79,.12), transparent 30%);
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(12px);
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1150px;margin:auto;padding:.7rem 1rem;
+  display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;text-decoration:none}
+.logo-mark{
+  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--green),#0a4a38);
+  color:#fff;font-family:'Thmanyah Serif Display',serif;font-size:1.5rem;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.2);
+}
+.logo small{display:block;font-weight:400;color:var(--muted);font-size:.8rem;line-height:1}
+.controls{margin-inline-start:auto;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.btn{
+  border:1px solid var(--border);background:var(--card);color:var(--ink);
+  padding:.45rem .8rem;border-radius:999px;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:.9rem;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.4rem;
+  transition:.2s;box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.btn:hover{transform:translateY(-1px);border-color:var(--gold)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#221a06;border:none}
+.font-ctrl{display:flex;align-items:center;gap:.3rem;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:.25rem .5rem}
+.font-ctrl button{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg);color:var(--ink);cursor:pointer;font-weight:800;font-family:inherit}
+.font-ctrl span{font-size:.85rem;min-width:52px;text-align:center;color:var(--muted)}
+.wrap{max-width:900px;margin:auto;padding:2rem 1rem 3rem}
+.page-title{text-align:center;margin-bottom:1.5rem}
+.page-title h1{
+  font-family:'Thmanyah Serif Display',serif;font-size:clamp(2rem,5vw,3rem);
+  margin:.5rem 0;line-height:1.5;
+  background:linear-gradient(135deg,var(--green2),var(--gold2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.page-title p{color:var(--muted);max-width:640px;margin:auto}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1.3rem 1.4rem;box-shadow:var(--shadow);margin-bottom:1rem;position:relative;overflow:hidden;
+}
+.card::before{content:"";position:absolute;inset-inline:0;top:0;height:4px;background:linear-gradient(90deg,var(--green),var(--gold2));}
+.card h2{margin:0 0 .5rem;font-family:'Thmanyah Serif Display',serif;font-size:1.35rem}
+.card p{margin:.4rem 0;color:var(--ink)}
+.card p.muted, .card li{color:var(--muted)}
+.card ul{margin:.4rem 0;padding-inline-start:1.2rem}
+.quote{
+  font-family:'Thmanyah Serif Text',serif;font-size:calc(1.3rem * var(--font-scale));
+  text-align:center;background:var(--bg);border:1px dashed var(--border);
+  border-radius:14px;padding:.9rem;margin:.6rem 0;line-height:2;
+}
+.back{text-align:center;margin-top:1.5rem}
+footer{border-top:1px solid var(--border);background:var(--bg2);padding:2rem 1rem;text-align:center;color:var(--muted)}
+footer a{font-weight:700}
+@media(max-width:600px){.topbar-inner{justify-content:center}.controls{margin:0}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">غ</div>
+      <div>مكفرات الذنوب<br><small>أذكار وأعمال صحيحة • مع مسبحة</small></div>
+    </a>
+    <div class="controls">
+      <div class="font-ctrl" title="حجم الخط">
+        <button id="decreaseFont" aria-label="تصغير الخط">أ−</button>
+        <span id="fontVal">100%</span>
+        <button id="increaseFont" aria-label="تكبير الخط">أ+</button>
+      </div>
+      <button class="btn" id="themeBtn">🌙 ليلي</button>
+      <a class="btn gold" href="index.html">🏠 الرئيسية</a>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="page-title">
+    <h1>من نحن</h1>
+    <p>تعرّف على رسالة موقع مكفرات الذنوب ومنهجيته في جمع الأذكار والأعمال الصحيحة</p>
+  </div>
+
+  <section class="card">
+    <h2>🌙 من نحن؟</h2>
+    <p><b>مكفرات الذنوب</b> موقع عربي يهدف إلى جمع ما ثبت في السنة الصحيحة من الأذكار والأدعية والأعمال التي يكفّر الله بها الذنوب، وعرضها بأسلوب مبسّط وموثّق يسهّل على المسلم المداومة عليها في يومه وليلته.</p>
+    <div class="quote">وَذَكِّرْ فَإِنَّ الذِّكْرَىٰ تَنفَعُ الْمُؤْمِنِينَ — الذاريات: 55</div>
+  </section>
+
+  <section class="card">
+    <h2>🎯 رسالتنا</h2>
+    <ul>
+      <li>تيسير الوصول إلى الأذكار الصحيحة الثابتة دون أحاديث ضعيفة أو موضوعة.</li>
+      <li>تشجيع المداومة اليومية عبر المسبحة الإلكترونية وعدّادات التقدم.</li>
+      <li>نشر ثقافة التوبة والرجوع إلى الله بأسلوب محبب وتصميم مريح.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>📚 منهجيتنا في التوثيق</h2>
+    <ul>
+      <li>لا ننشر إلا ما ثبت في <b>صحيح البخاري وصحيح مسلم</b> أو حسّنه أهل العلم في السنن.</li>
+      <li>نذكر مع كل ذكر <b>فضله ومصدره ورقم الحديث</b> ليتأكد القارئ بنفسه.</li>
+      <li>ننبه إلى أن <b>الكبائر تحتاج توبة خاصة</b> بشروطها، وهذه المكفرات تكفّر الصغائر وتعين على التوبة من الكبائر.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>✨ ماذا يقدم الموقع؟</h2>
+    <ul>
+      <li>20 ذكراً وعملاً مصنّفة: أذكار يومية، بعد الصلاة، أعمال مكفرة، وأدعية.</li>
+      <li>مسبحة إلكترونية لكل ذكر يحتاج تكراراً مع حفظ التقدم.</li>
+      <li>تحكم كامل بحجم الخط ووضع ليلي ونهاري وخط ثمانية العربي.</li>
+      <li>بحث وفلترة سريعة للوصول إلى أي ذكر.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>🤲 شاركنا الأجر</h2>
+    <p class="muted">قال ﷺ: «الدال على الخير كفاعله». شارك الموقع مع من تحب، فكل تسبيحة يتعلمها غيرك بسببك هي في ميزان حسناتك بإذن الله.</p>
+  </section>
+
+  <div class="back">
+    <a class="btn gold" href="index.html">→ العودة إلى الأذكار والمسبحة</a>
+  </div>
+</main>
+
+<footer>
+  <div style="font-family:'Thmanyah Serif Display',serif;font-size:1.4rem;color:var(--ink)">مكفرات الذنوب</div>
+  <p><a href="index.html">الرئيسية</a> • من نحن</p>
+  <p>صُنع بحب لنشر السنة الصحيحة • تذكّر: الدال على الخير كفاعله</p>
+</footer>
+
+<script>
+let fontScale = parseFloat(localStorage.getItem('fontScale')||'1');
+let theme = localStorage.getItem('theme')||'light';
+function applyFont(){document.documentElement.style.setProperty('--font-scale',fontScale);document.getElementById('fontVal').textContent=Math.round(fontScale*100)+'%';localStorage.setItem('fontScale',fontScale)}
+function applyTheme(){document.documentElement.setAttribute('data-theme',theme);document.getElementById('themeBtn').textContent=theme==='light'?'🌙 ليلي':'☀️ نهاري';localStorage.setItem('theme',theme)}
+document.getElementById('increaseFont').onclick=()=>{fontScale=Math.min(1.6,fontScale+0.1);applyFont()};
+document.getElementById('decreaseFont').onclick=()=>{fontScale=Math.max(0.8,fontScale-0.1);applyFont()};
+document.getElementById('themeBtn').onclick=()=>{theme=theme==='light'?'dark':'light';applyTheme()};
+applyFont();applyTheme();
+</script>
+</body>
+</html>
